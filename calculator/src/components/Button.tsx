@@ -1,6 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
+
+export enum ButtonType {
+    Number,
+    Operation,
+    Function
+};
+
+type ButtonProps = {
+    label: string;
+    type?: ButtonType;
+    position?: [x: number, y: number];
+    width?: number;
+    color?: string;
+    fcolor?: string;
+}
+
 const StyledButton = styled.button`
     background: #323232;
     border: none;
@@ -10,15 +26,8 @@ const StyledButton = styled.button`
     cursor: pointer;
 `;
 
-type ButtonProps = {
-    label: string;
-    position?: [x: number, y: number];
-    width?: number;
-    color?: string;
-    fcolor?: string;
-}
-
-const Button: React.FC<ButtonProps> = ( {label, position, width, color, fcolor} ) => {
+const Button: React.FC<ButtonProps> = ( 
+    {type = ButtonType.Operation, label, position, width, color, fcolor} ) => {
     const styles: React.CSSProperties = {};
 
     if (position) {
