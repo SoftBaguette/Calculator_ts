@@ -2,12 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-
+    background: #323232;
+    border: none;
+    border-radius: 8px;
 `;
 
-const Button: React.FC = () => {
+type ButtonProps = {
+    label: string;
+}
+
+const Button: React.FC<ButtonProps> = ( {label} ) => {
     return (
-        <StyledButton>Uno</StyledButton>
+        <StyledButton>{label}</StyledButton>
     );
 }
 
