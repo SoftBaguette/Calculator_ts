@@ -22,9 +22,22 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 50px;
   font-size: 2.75rem;
+  text-align: center;
   color: white;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background: #434343;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
 `;
+
 
 const Button: React.FC<ButtonProps> = ({
   type = ButtonType.Operation,
